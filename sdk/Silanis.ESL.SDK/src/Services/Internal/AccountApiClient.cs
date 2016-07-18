@@ -205,6 +205,89 @@ namespace Silanis.ESL.SDK
             }
         }
 
+        public IList<Silanis.ESL.API.Account> GetSubAccounts() 
+        {
+            string path = template.UrlFor(UrlTemplate.SUB_ACCOUNT_PATH)
+                .Build();
+
+            try 
+            {
+                string stringResponse = restClient.Get(path);
+                return JsonConvert.DeserializeObject<IList<Silanis.ESL.API.Account>>(stringResponse, jsonSettings);
+            }
+            catch (EslServerException e) 
+            {
+                throw new EslServerException("Failed to retrieve subAccounts from the account.\t" + " Exception: " + e.Message, e.ServerError, e);
+            }
+            catch (Exception e) 
+            {
+                throw new EslException("Failed to retrieve subAccounts from the account.\t" + " Exception: " + e.Message, e);
+            }
+        }
+
+        public Silanis.ESL.API.Account CreateSubAccount(Silanis.ESL.API.SubAccountRequest subAccountRequest) 
+        {
+            string path = template.UrlFor(UrlTemplate.SUB_ACCOUNT_PATH)
+                    .Build();
+            try 
+            {
+                string json = JsonConvert.SerializeObject(subAccountRequest, jsonSettings);
+                string stringResponse = restClient.Post(path, json);
+
+                return JsonConvert.DeserializeObject<Silanis.ESL.API.Account> (stringResponse, jsonSettings );
+            }
+            catch (EslServerException e) 
+            {
+                throw new EslServerException("Failed to create a sub-account.\t" + " Exception: " + e.Message, e.ServerError, e);
+            }
+            catch (Exception e) 
+            {
+                throw new EslException("Failed to create a sub-account.\t" + " Exception: " + e.Message, e);
+            }
+        }
+
+        public Silanis.ESL.API.Sender AddSenderToSubAccount(string subAccountId, Silanis.ESL.API.Sender sender) 
+        {
+            string path = template.UrlFor(UrlTemplate.SUB_ACCOUNT_SENDERS_PATH)
+                .Replace("{subAccountId}", subAccountId)
+                .Build();
+            try 
+            {
+                string json = JsonConvert.SerializeObject(sender, jsonSettings);
+                string stringResponse = restClient.Post(path, json);
+
+                return JsonConvert.DeserializeObject<Silanis.ESL.API.Sender> (stringResponse, jsonSettings );
+            }
+            catch (EslServerException e) 
+            {
+                throw new EslServerException("Failed to add a sender to the sub-account.\t" + " Exception: " + e.Message, e.ServerError, e);
+            }
+            catch (Exception e) 
+            {
+                throw new EslException("Failed to add a sender to the sub-account.\t" + " Exception: " + e.Message, e);
+            }
+        }
+
+        public void DeleteSubAccount(string subAccountId) 
+        {
+            string path = template.UrlFor(UrlTemplate.SUB_ACCOUNT_ID_PATH)
+                .Replace("{subAccountId}", subAccountId)
+                    .Build();
+
+            try 
+            {
+                restClient.Delete(path);
+            }
+            catch (EslServerException e) 
+            {
+                throw new EslServerException("Failed to not delete the sub-account from the sender.\t" + " Exception: " + e.Message, e.ServerError, e);
+            }
+            catch (Exception e) 
+            {
+                throw new EslException("Failed to delete the sub-account from the sender.\t" + " Exception: " + e.Message, e);
+            }
+        }
+
         public IList<Silanis.ESL.API.Sender> GetContacts() {
             string path = template.UrlFor(UrlTemplate.ACCOUNT_CONTACTS_PATH)
                 .Build();

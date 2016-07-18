@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Silanis.ESL.SDK.src.Internal.Conversion
 {
-    class TextAnchorConverter
+    internal class TextAnchorConverter
     {
         private TextAnchor sdkTextAnchor = null;
         private ExtractAnchor apiExtractAnchor = null;

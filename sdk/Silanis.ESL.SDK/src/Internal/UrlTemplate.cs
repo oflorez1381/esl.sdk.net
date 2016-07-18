@@ -157,6 +157,11 @@ namespace Silanis.ESL.SDK.Internal
         public static readonly string SIGNATURE_IMAGE_FOR_SENDER_PATH = "/account/senders/{senderId}/signatureImage";
         public static readonly string SIGNATURE_IMAGE_FOR_PACKAGE_ROLE_PATH = "/packages/{packageId}/roles/{roleId}/signatureImage";
 
+        // SubAccount Service
+        public static readonly string SUB_ACCOUNT_PATH = "/account/subaccounts";
+        public static readonly string SUB_ACCOUNT_ID_PATH = "/account/subaccounts/{subAccountId}";
+        public static readonly string SUB_ACCOUNT_SENDERS_PATH = "/account/subaccounts/{subAccountId}/senders";
+
 
 		public UrlTemplate (string baseUrl)
 		{

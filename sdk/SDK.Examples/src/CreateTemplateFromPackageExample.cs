@@ -16,13 +16,14 @@ namespace SDK.Examples
 
         public readonly string DOCUMENT_NAME = "First Document";
         public readonly string DOCUMENT_ID = "doc1";
-        public readonly string PACKAGE_NAME_NEW = "Template name";
         public readonly string PACKAGE_DESCRIPTION = "This is a package created using the e-SignLive SDK";
         public readonly string PACKAGE_EMAIL_MESSAGE = "This message should be delivered to all signers";
         public readonly string PACKAGE_SIGNER1_FIRST = "John";
         public readonly string PACKAGE_SIGNER1_LAST = "Smith";
         public readonly string PACKAGE_SIGNER2_FIRST = "Patty";
         public readonly string PACKAGE_SIGNER2_LAST = "Galant";
+
+        public string newPackageName;
 
         public PackageId TemplateId
         {
@@ -34,6 +35,8 @@ namespace SDK.Examples
 
         override public void Execute()
         {
+            newPackageName = "New " + PackageName;
+
             Document document = DocumentBuilder.NewDocumentNamed(DOCUMENT_NAME)
                 .WithId(DOCUMENT_ID)
                 .FromStream(fileStream1, DocumentType.PDF)
@@ -53,7 +56,7 @@ namespace SDK.Examples
 
             packageId = eslClient.CreatePackage(documentPackage);
 
-            templateId = eslClient.CreateTemplateFromPackage(packageId, PACKAGE_NAME_NEW);
+            templateId = eslClient.CreateTemplateFromPackage(packageId, newPackageName);
         }
     }
 }

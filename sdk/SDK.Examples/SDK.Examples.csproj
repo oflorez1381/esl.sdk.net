@@ -159,6 +159,7 @@
     <Compile Include="src\SignDocumentsExample.cs" />
     <Compile Include="src\UpdateSignerExample.cs" />
     <Compile Include="src\AuditExample.cs" />
+    <Compile Include="src\SubAccountExample.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

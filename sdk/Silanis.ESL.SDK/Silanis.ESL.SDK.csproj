@@ -266,7 +266,6 @@
     <Compile Include="src\Models\Group.cs" />
     <Compile Include="src\Models\GroupMember.cs" />
     <Compile Include="src\Models\GroupMembership.cs" />
-    <Compile Include="src\Models\GroupMemberType.cs" />
     <Compile Include="src\Models\GroupSummary.cs" />
     <Compile Include="src\Models\GuestAuth.cs" />
     <Compile Include="src\Models\HeaderOptions.cs" />
@@ -377,6 +376,18 @@
     <Compile Include="src\Internal\LoggerFactory.cs" />
     <Compile Include="src\Internal\RollOverTextWriter.cs" />
     <Compile Include="src\Internal\ILogger.cs" />
+    <Compile Include="src\Account.cs" />
+    <Compile Include="src\Internal\Conversion\AccountConverter.cs" />
+    <Compile Include="src\Builder\AccountBuilder.cs" />
+    <Compile Include="src\SubAccount.cs" />
+    <Compile Include="src\SubAccountPlan.cs" />
+    <Compile Include="src\Builder\SubAccountBuilder.cs" />
+    <Compile Include="src\Builder\SubAccountPlanBuilder.cs" />
+    <Compile Include="src\Models\SubAccountPlan.cs" />
+    <Compile Include="src\Models\SubAccountRequest.cs" />
+    <Compile Include="src\GroupMemberType.cs" />
+    <Compile Include="src\Internal\Conversion\SubAccountConverter.cs" />
+    <Compile Include="src\Internal\Conversion\SubAccountPlanConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

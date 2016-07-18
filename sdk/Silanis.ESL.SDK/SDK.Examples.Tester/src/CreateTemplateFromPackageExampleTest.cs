@@ -19,7 +19,7 @@ namespace SDK.Examples
             Assert.AreEqual(document.Name, example.DOCUMENT_NAME);
             Assert.AreEqual(document.Id, example.DOCUMENT_ID);
 
-            Assert.AreEqual(templatePackage.Name, example.PACKAGE_NAME_NEW);
+            Assert.AreEqual(templatePackage.Name, example.newPackageName);
             // TODO: Make sure that this is correctly preserved.
             Assert.AreEqual(templatePackage.Signers.Count, 3);
             Assert.AreEqual(templatePackage.GetSigner(example.email1).FirstName, example.PACKAGE_SIGNER1_FIRST);

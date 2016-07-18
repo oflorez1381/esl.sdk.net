@@ -104,6 +104,38 @@ namespace Silanis.ESL.SDK.Services
         {
             apiClient.ClearDelegates(senderId);
         }
+        
+        public IList<Silanis.ESL.SDK.Account> GetSubAccounts() 
+        {
+            IList<Silanis.ESL.SDK.Account> result = new List<Silanis.ESL.SDK.Account>();
+            IList<Silanis.ESL.API.Account> apiAccounts = apiClient.GetSubAccounts();
+            foreach (Silanis.ESL.API.Account account in apiAccounts) 
+            {
+                result.Add(new AccountConverter(account).ToSDKAccount());
+            }
+            return result;
+        }
+
+        public void DeleteSubAccount(string subAccountId) 
+        {
+            apiClient.DeleteSubAccount(subAccountId);
+        }
+
+        public string CreateSubAccount(Silanis.ESL.SDK.SubAccount subAccount) 
+        {
+            Silanis.ESL.API.SubAccountRequest subAccountRequest = new SubAccountConverter(subAccount).ToAPISubAccountRequest();
+            Silanis.ESL.API.Account account = apiClient.CreateSubAccount(subAccountRequest);
+            return account.Id;
+        }
+
+        public Sender AddSenderToSubAccount(string subAccountId, SenderInfo sender, SenderStatus senderStatus) 
+        {
+            Silanis.ESL.API.Sender apiSender = new SenderConverter(sender).ToAPISender();
+            apiSender.Status = senderStatus.GetName();
+
+            Silanis.ESL.API.Sender newSender = apiClient.AddSenderToSubAccount(subAccountId, apiSender);
+            return new SenderConverter(newSender).ToSDKSender();
+        }
     }
 }
 

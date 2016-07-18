@@ -42,11 +42,11 @@ namespace SDK.Examples
         public IList<AttachmentRequirement> signer1Attachments, signer2Attachments;
         public AttachmentRequirement signer1Att1, signer2Att1, signer2Att2;
         public RequirementStatus retrievedSigner1Att1RequirementStatus, retrievedSigner2Att1RequirementStatus,
-        retrievedSigner2Att2RequirementStatus, retrievedSigner1Att1RequirementStatusAfterRejection,
-        retrievedSigner1Att1RequirementStatusAfterAccepting;
+            retrievedSigner2Att2RequirementStatus, retrievedSigner1Att1RequirementStatusAfterRejection,
+            retrievedSigner1Att1RequirementStatusAfterAccepting;
 
         public string retrievedSigner1Att1RequirementSenderCommentAfterRejection,
-        retrievedSigner1Att1RequirementSenderCommentAfterAccepting;
+            retrievedSigner1Att1RequirementSenderCommentAfterAccepting;
 
         public FileInfo downloadedAttachemnt1;
         public long attachment1ForSigner1FileSize;

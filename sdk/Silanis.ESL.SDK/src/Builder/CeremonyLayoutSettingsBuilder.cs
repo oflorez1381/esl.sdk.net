@@ -55,18 +55,6 @@ namespace Silanis.ESL.SDK
             return this;
         }
 
-		public CeremonyLayoutSettingsBuilder WithIFrame()
-		{
-			iFrame = true;
-			return this;
-		}
-
-        public CeremonyLayoutSettingsBuilder WithoutIFrame()
-        {
-            iFrame = false;
-            return this;
-        }
-
         public CeremonyLayoutSettingsBuilder WithBreadCrumbs()
         {
             breadCrumbs = true;

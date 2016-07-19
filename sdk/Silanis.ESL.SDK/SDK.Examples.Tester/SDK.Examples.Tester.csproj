@@ -126,6 +126,7 @@
     <Compile Include="src\GetSigningStatusExampleTest.cs" />
     <Compile Include="src\SignDocumentsExampleTest.cs" />
     <Compile Include="src\UpdateSignerExampleTest.cs" />
+    <Compile Include="src\AuditExampleTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -143,9 +144,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="jenkins.properties" />
+    <None Include="jenkins.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="signers.properties">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

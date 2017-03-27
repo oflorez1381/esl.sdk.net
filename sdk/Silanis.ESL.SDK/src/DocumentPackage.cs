@@ -168,5 +168,12 @@ namespace Silanis.ESL.SDK
             get;
             set;
         }
+
+        public Nullable<DateTime> CreatedDate
+        {
+            get;
+            set;
+        }
+
     }
 }
